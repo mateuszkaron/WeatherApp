@@ -1,0 +1,12 @@
+body {
+  font-family: "Pixelify Sans", sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 0.5rem;
+}
+
+#forecast{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
