@@ -18,10 +18,17 @@ button{
   background-position: center;
   background-repeat: no-repeat;
   padding: 0px;
+  display: block;
   width: 24px;
   height: 24px;
   border: none;
   cursor: pointer;
+  transition: border 0.3s ease; /* Smooth transition for hover effect */
+}
+
+button:hover{
+  border: 2px solid red;
+  background-color: rgba(255, 0, 0, 0.1); /* Add slight background color on hover */
 }
 
 button:focus {
@@ -30,12 +37,15 @@ button:focus {
 
 #changeLocation{
   background-image: url(assets/icons/iconLocation.png);
+  background-size: cover;
 }
 #close{
   background-image: url(assets/icons/iconExit.png);
+  background-size: cover;
 }
 #minimize{
   background-image: url(assets/icons/iconminimize.png);
+  background-size: cover;
 }
 
 #options{

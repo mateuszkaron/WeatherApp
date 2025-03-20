@@ -1,19 +1,23 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+let mainWindow; // Declare mainWindow globally
+
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 400,
     height: 600,
     frame: false,
     transparent: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
     },
   });
 
@@ -32,13 +36,13 @@ app.whenReady().then(() => {
   });
 });
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+ipcMain.on('window-close', () => { // Updated event name
+  app.quit();
 });
 
-app.on('minimize', () => {
-  app.minimize();
+ipcMain.on('window-minimize', () => { // Updated event name
+  if (mainWindow) {
+    mainWindow.minimize();
+  }
 });
 

@@ -9,12 +9,11 @@
   <body>
     <section id="main-app">
       <div id="options">
-          <button id="changeLocation"></button>
-          <div id="rightButtons">
-            <button id="minimize"></button>
-            <button id="close"></button>
-          </div>
-          <script src="options.js"></script>
+        <button id="changeLocation" aria-label="Change Location"></button>
+        <div id="rightButtons">
+          <button id="minimize" aria-label="Minimize"></button>
+          <button id="close" aria-label="Close"></button>
+        </div>
       </div>
 
         
@@ -58,6 +57,7 @@
       </div>
       <div></div>
     </section>
-    <script src="render.js"></script>
+    <script src="options.js" defer></script>
+    <script src="render.js" defer></script>
   </body>
 </html>

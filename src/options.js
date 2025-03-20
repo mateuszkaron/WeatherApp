@@ -1,7 +1,11 @@
-document.getElementById("minimize").addEventListener("click", () => {
-    window.electronAPI.minimize();
-});
+const { ipcRenderer } = require("electron");
 
-document.getElementById("window-all-closed").addEventListener("click", () => {
-    window.electronAPI.close();
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("minimize").addEventListener("click", () => {
+    ipcRenderer.send("window-minimize"); // Updated event name
+  });
+
+  document.getElementById("close").addEventListener("click", () => {
+    ipcRenderer.send("window-close"); // Updated event name
+  });
 });
