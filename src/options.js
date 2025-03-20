@@ -1,9 +1,7 @@
-const { remote } = require('electron');
-
 document.getElementById("minimize").addEventListener("click", () => {
-    remote.getCurrentWindow().minimize();
+    window.electronAPI.minimize();
 });
 
-document.getElementById("close").addEventListener("click", () => {
-    remote.getCurrentWindow().close();
+document.getElementById("window-all-closed").addEventListener("click", () => {
+    window.electronAPI.close();
 });

@@ -1,26 +1,64 @@
 body {
   font-family: "Pixelify Sans", sans-serif;
+  font-weight: 400;
   overflow: hidden;
 }
+
 #main-app{
   -webkit-app-region: drag;
   background-color: #F0E8DD;
   border-radius: 25px;
-  height: 100vh;
+  padding-bottom: 5vh;
+  height: 100%;
+}
+
+button{
+  background-color: transparent;
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+#changeLocation{
+  background-image: url(assets/icons/iconLocation.png);
+}
+#close{
+  background-image: url(assets/icons/iconExit.png);
+}
+#minimize{
+  background-image: url(assets/icons/iconminimize.png);
 }
 
 #options{
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 5vh;
   border-radius: 25px 25px 0px 0px;
-  margin-top: 1rem;
+  padding-top: .7rem;
+  padding-left: .8rem;
+}
+
+#rightButtons{
+  display: flex;
+  gap: 0.5rem;
+  padding-right: .8rem;
 }
 
 #temperature{
   position: absolute;
   font-size: 3rem;
   margin-top: -8vh;
-  margin-left: 2rem;
+  margin-left: 1.3rem;
   padding: 0;
 }
 
@@ -43,7 +81,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 2rem;
+  right: 1.3rem;
   justify-content: center;
   text-transform: uppercase;
 }
@@ -63,8 +101,20 @@ body {
 }
 
 #day{
-  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   text-align: center;
   justify-content: center;
+}
+
+#day h3, #day h4{
+  margin: 0;
+  padding: 0;
+}
+
+#day img{
+  margin: 0;
+  padding: 0;
 }
 
