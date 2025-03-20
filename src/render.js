@@ -45,12 +45,22 @@ async function getWeather(locationKey)
         if(!response.ok) throw new Error("We failed to get your weather infomation");
 
         const data = await response.json();
+
+        const isDayTime = data[0].IsDayTime; // Get day time
+        const weatherText = data[0].WeatherText;  // Weather description
+        const weatherIcon = data[0].WeatherIcon;  // Weather icon
+
         const temperatureCelcius = data[0].Temperature.Metric.Value;  // Get temperature in Celcius
         const temperatureFarenheit = data[0].Temperature.Imperial.Value; // Get temperature in Farenheit
 
+        
+
         return {
+            isDayTime,
+            weatherText,
+            weatherIcon,
             temperatureCelcius,
-            temperatureFarenheit 
+            temperatureFarenheit, 
         };
 
     } catch(error){
@@ -63,8 +73,12 @@ async function showWeather(city)
 {
     try{
         const locationKey = await getLocationKey(city);
-        const {temperatureCelcius, temperatureFarenheit} = await getWeather(locationKey);
+        const {isDayTime,weatherText,weatherIcon,temperatureCelcius, temperatureFarenheit} = await getWeather(locationKey);
         
+        console.log("City: ", city);
+        console.log("Day time: ", isDayTime);
+        console.log("Weather: ", weatherText);
+        console.log("Weather icon: ", weatherIcon);
         console.log("Temperature in Celcius: ", temperatureCelcius);
         console.log("Temperature in Farenheit: ", temperatureFarenheit);
 

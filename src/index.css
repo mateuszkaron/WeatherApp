@@ -3,20 +3,25 @@ body {
   overflow: hidden;
 }
 #main-app{
+  -webkit-app-region: drag;
   background-color: #F0E8DD;
-  border-radius: 25px 25px 25px 25px;
+  border-radius: 25px;
   height: 100vh;
 }
 
 #options{
-  -webkit-app-region: drag;
+  justify-content: center;
   height: 5vh;
   border-radius: 25px 25px 0px 0px;
+  margin-top: 1rem;
 }
 
 #temperature{
   position: absolute;
-  font-size: 70px;
+  font-size: 3rem;
+  margin-top: -8vh;
+  margin-left: 2rem;
+  padding: 0;
 }
 
 #weather{
@@ -24,15 +29,13 @@ body {
   background-repeat: no-repeat;
   background-size: 400px 400px;
   background-position: center;
-  height: 60vh;
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
+  height: 70vh;
+  margin-top: 2rem;
 }
 
 #location{
   position: relative;
-  bottom: 0px;
+  bottom: 17vh;
   text-align: center;
 }
 
@@ -40,7 +43,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 1rem;
+  right: 2rem;
   justify-content: center;
   text-transform: uppercase;
 }
@@ -51,10 +54,12 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  bottom: 0%;
+  bottom: calc(0% + 2rem);
+  left: 50%;
+  transform: translateX(-50%);
   width: calc(100% - 4rem);
   margin: 0rem,2rem,4rem,2rem;
-  height: 30vh;
+  height: 15vh;
 }
 
 #day{
