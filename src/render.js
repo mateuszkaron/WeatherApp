@@ -1,27 +1,30 @@
-const city = document.getElementById("city");
 const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
 
+//showWeather("Warsaw");
+
+document.getElementById("changeLocation").addEventListener("click", async () => {
+    const city = document.getElementById("city").textContent.trim();
+    showWeather(city);
+});
+
+console.log(city);
 
 // Get location key
 async function getLocationKey(city) 
 {
-    const cityUrl = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${_apiKey}&q=${city}";
- 
+    const cityUrl = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${_apiKey}&q=${city}`;
+
     try{
         const response = await fetch(cityUrl);
 
-        if(!response.ok){
-            throw new Error("We failed to get your city infomation");
-        }
+        if(!response.ok) throw new Error("We failed to get your city infomation");
 
         const data = await response.json();
         
-        if(data.length > 0){
-            const locationKey = data[0].Key;
-            return locationKey;
-        }else{
-            throw new Error("Your city is out of range");
-        }
+        if(data.length === 0) throw new Error("Your city is out of range");
+        
+        const locationKey = data[0].Key;
+        return locationKey;
 
     }catch(error){
         console.error("Error: ", error);
@@ -32,14 +35,14 @@ async function getLocationKey(city)
 // Get weather
 async function getWeather(locationKey) 
 {
-    const weatherUrl = "http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${_apiKey}";
+    if(!locationKey) throw new Error("We didn't get your location key");
+
+    const weatherUrl = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${_apiKey}`;
 
     try{
         const response = await fetch(weatherUrl);
 
-        if(!response.ok){
-            throw new Error("We failed to get your weather infomation");
-        }
+        if(!response.ok) throw new Error("We failed to get your weather infomation");
 
         const data = await response.json();
         const temperatureCelcius = data[0].Temperature.Metric.Value;  // Get temperature in Celcius
@@ -70,3 +73,5 @@ async function showWeather(city)
         return error;
     }
 }
+
+//showWeather(city.value);
