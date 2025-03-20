@@ -5,7 +5,7 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-let mainWindow; // Declare mainWindow globally
+let mainWindow;
 
 const createWindow = () => {
   // Create the browser window.
@@ -36,13 +36,18 @@ app.whenReady().then(() => {
   });
 });
 
-ipcMain.on('window-close', () => { // Updated event name
+ipcMain.on('window-close', () => {
+  console.log('Odbiór zamykania....');
   app.quit();
 });
 
-ipcMain.on('window-minimize', () => { // Updated event name
-  if (mainWindow) {
-    mainWindow.minimize();
-  }
+ipcMain.on('window-minimize', () => { 
+  console.log('Odbiór minimalizacji....');
+  mainWindow.minimize();
+});
+
+ipcMain.on('change-location', () => {
+  console.log('Odbiór zmiany lokalizacji....');
+  mainWindow.loadFile(path.join(__dirname, 'changeLocation.html'));
 });
 

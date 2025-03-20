@@ -23,12 +23,14 @@ button{
   height: 24px;
   border: none;
   cursor: pointer;
-  transition: border 0.3s ease; /* Smooth transition for hover effect */
+  -webkit-app-region: no-drag;
+  z-index: 20;
+  transition: border 0.1s ease-in-out;
 }
 
 button:hover{
-  border: 2px solid red;
-  background-color: rgba(255, 0, 0, 0.1); /* Add slight background color on hover */
+  border: 2px solid black;
+  border-radius: 50%;
 }
 
 button:focus {
@@ -56,6 +58,8 @@ button:focus {
   border-radius: 25px 25px 0px 0px;
   padding-top: .7rem;
   padding-left: .8rem;
+  position: relative;
+  z-index: 10;
 }
 
 #rightButtons{

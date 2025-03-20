@@ -2,11 +2,6 @@ const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
 
 //showWeather("Warsaw");
 
-document.getElementById("changeLocation").addEventListener("click", async () => {
-    const city = document.getElementById("city").textContent.trim();
-    showWeather(city);
-});
-
 console.log(city);
 
 // Get location key

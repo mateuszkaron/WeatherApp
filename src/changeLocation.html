@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pixel Weather</title>
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <section id="main-app">
+      <div id="options">
+        <button id="goBack" aria-label="go Back"></button>
+        <div id="rightButtons">
+          <button id="minimize" aria-label="Minimize"></button>
+          <button id="close" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <div id="search">
+        <input id="searchBar" type="text" placeholder="Search for a location" />
+        <button id="searchButton" aria-label="Search">0</button>
+      </div>
+
+    </section>
+    <script src="options.js" defer></script>
+    <script src="render.js" defer></script>
+  </body>
+</html>
