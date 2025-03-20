@@ -6,47 +6,50 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div id="options">
-        <button id="changeLocation">o</button>
-        <button id="minimalize">_</button>
-        <button id="close">X</button>
-    </div>
-
-    <div id="weather">     
-      <div id="temperature">
-        <h2 id="temp">0</h2>
-        <h2 id="unit">°C</h2>
-      </div>      
-      <div id="description">
-        <h1 id="desc">Description</h1>
-      </div>
-      <div id="location">
-        <h1 id="city">Sosnowiec</h1>
-      </div>
-    </div>
-
-    <div id="forecast">
-      <div id="Day1">
-        <h1 id="Icon1name">Icon</h1>
-        <h2 id="Icon1desc">Day</h2>
-      </div>
-      <div id="Day2">
-        <h1 id="Icon2name">Icon</h1>
-        <h2 id="Icon2desc">Day</h2>
-      </div>
-      <div id="Day3">
-        <h1 id="Icon3name">Icon</h1>
-        <h2 id="Icon3desc">Day</h2>
-      </div>
-      <div id="Day4">
-        <h1 id="Icon4name">Icon</h1>
-        <h2 id="Icon4desc">Day</h2>
-      </div>
-      <div id="Day5">
-        <h1 id="Icon5name">Icon</h1>
-        <h2 id="Icon5desc">Day</h2>
+    <section id="main-app">
+      <div id="options">
+          <button id="changeLocation">o</button>
+          <button id="minimalize">_</button>
+          <button id="close">X</button>
+          <script src="options.js"></script>
       </div>
 
-      <script src="render.js"></script>
+        
+        <div id="temperature">
+          <h1 id="temp">26<a id="unit">°C </a></h1>
+        </div>
+        <div id="weather"></div>      
+        <div id="description">
+          <h2 id="desc">S<br>U<br>N<br>N<br>Y</h2>
+        </div>
+        <div id="location">
+          <h2 id="city">Sosnowiec</h2>
+        </div>   
+
+      <div id="forecast">
+        <div id="day">
+          <img id="Icon1" class="forecastIcons" src="assets/icons/icon01.png" alt="Icon">
+          <h3 id="Icon1desc">Day</h3>
+        </div>
+        <div id="day">
+          <img id="Icon1" class="forecastIcons" src="assets/icons/icon01.png" alt="Icon">
+          <h3 id="Icon2desc">Day</h3>
+        </div>
+        <div id="day">
+          <img id="Icon1" class="forecastIcons" src="assets/icons/icon01.png" alt="Icon">
+          <h3 id="Icon3desc">Day</h3>
+        </div>
+        <div id="day">
+          <img id="Icon1" class="forecastIcons" src="assets/icons/icon01.png" alt="Icon">
+          <h3 id="Icon4desc">Day</h3>
+        </div>
+        <div id="day">
+          <img id="Icon1" class="forecastIcons" src="assets/icons/icon01.png" alt="Icon">
+          <h3 id="Icon5desc">Day</h3>
+        </div>
+      </div>
+      <div></div>
+    </section>
+    <script src="render.js"></script>
   </body>
 </html>

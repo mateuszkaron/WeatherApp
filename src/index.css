@@ -1,12 +1,65 @@
 body {
   font-family: "Pixelify Sans", sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 0.5rem;
+  overflow: hidden;
+}
+#main-app{
+  background-color: #F0E8DD;
+  border-radius: 25px 25px 25px 25px;
+  height: 100vh;
+}
+
+#options{
+  -webkit-app-region: drag;
+  height: 5vh;
+  border-radius: 25px 25px 0px 0px;
+}
+
+#temperature{
+  position: absolute;
+  font-size: 70px;
+}
+
+#weather{
+  background-image: url(assets/backgrounds/sun-export.png);
+  background-repeat: no-repeat;
+  background-size: 400px 400px;
+  background-position: center;
+  height: 60vh;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+#location{
+  position: relative;
+  bottom: 0px;
+  text-align: center;
+}
+
+#description{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  justify-content: center;
+  text-transform: uppercase;
 }
 
 #forecast{
+  position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  bottom: 0%;
+  width: calc(100% - 4rem);
+  margin: 0rem,2rem,4rem,2rem;
+  height: 30vh;
 }
+
+#day{
+  gap: 0.5rem;
+  text-align: center;
+  justify-content: center;
+}
+
