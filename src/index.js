@@ -51,4 +51,12 @@ ipcMain.on("change-window", (event, newWindow) => {
   mainWindow.loadFile(path.join(__dirname, newWindow));
 });
 
+ipcMain.on("city", (event, newCity) => {
+  console.log("Received city main.js: ", newCity);
+  const mainWindow = BrowserWindow.getAllWindows().find(win => win.webContents.getURL().includes('index.html'));
+  if (mainWindow) {
+    console.log("Sending city to renderer: ", newCity);
+    mainWindow.webContents.send('update-city', newCity);
+  }
+});
 

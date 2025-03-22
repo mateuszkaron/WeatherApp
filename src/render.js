@@ -2,12 +2,10 @@ const { ipcMain, ipcRenderer } = require("electron");
 
 const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
 
-
-
-ipcRenderer.on("city", (event, city) => {
-    console.log("Received city: ", city);
+ipcRenderer.on("update-city", (event, newCity) => {
+    console.log("Received city renderer: ", city);
     const currentCity = document.querySelector(".city"); 
-    currentCity.textContent = city;
+    if(currentCity) currentCity.textContent = city;
 });
 
 //showWeather("Warsaw");
