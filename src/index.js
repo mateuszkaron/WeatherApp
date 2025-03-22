@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer } = require('electron');
 const path = require('node:path');
 
 if (require('electron-squirrel-startup')) {
@@ -52,11 +52,9 @@ ipcMain.on("change-window", (event, newWindow) => {
 });
 
 ipcMain.on("city", (event, newCity) => {
-  console.log("Received city main.js: ", newCity);
-  const mainWindow = BrowserWindow.getAllWindows().find(win => win.webContents.getURL().includes('index.html'));
-  if (mainWindow) {
-    console.log("Sending city to renderer: ", newCity);
-    mainWindow.webContents.send('update-city', newCity);
+  if(mainWindow){
+    console.log("Odbiór miasta: ", newCity);
+    mainWindow.webContents.send("update-city", newCity);
   }
 });
 

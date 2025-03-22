@@ -2,15 +2,14 @@ const { ipcMain, ipcRenderer } = require("electron");
 
 const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
 
-ipcRenderer.on("update-city", (event, newCity) => {
-    console.log("Received city renderer: ", city);
-    const currentCity = document.querySelector(".city"); 
-    if(currentCity) currentCity.textContent = city;
-});
-
 //showWeather("Warsaw");
 
 console.log(city);
+
+ipcRenderer.on("update-city", (event, newCity) => {
+    console.log("Received city: ", newCity);
+    document.getElementById("city").innerText = newCity;
+});
 
 // Get location key
 async function getLocationKey(city) 
