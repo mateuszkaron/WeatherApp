@@ -5,8 +5,9 @@ const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
 
 
 ipcRenderer.on("city", (event, city) => {
-    console.log("Odbiór miasta: ", city);
+    console.log("Received city: ", city);
     const currentCity = document.querySelector(".city"); 
+    currentCity.textContent = city;
 });
 
 //showWeather("Warsaw");
