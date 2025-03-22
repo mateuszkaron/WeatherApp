@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
-    <section id="main-app">
+    <section id="search-window">
       <div id="options">
-        <button id="goBack" aria-label="go Back"></button>
+        <button id="back" aria-label="Back"></button>
         <div id="rightButtons">
           <button id="minimize" aria-label="Minimize"></button>
           <button id="close" aria-label="Close"></button>
@@ -17,12 +17,15 @@
       </div>
 
       <div id="search">
-        <input id="searchBar" type="text" placeholder="Search for a location" />
-        <button id="searchButton" aria-label="Search">0</button>
+        <h1>Locations</h1>
+        <h2>Enter a location to get the weather</h2>
+        <div id="locationSearch">
+          <input id="searchBar" type="text" placeholder="Search" />
+          <button id="searchButton" aria-label="Search Location"></button>
+        </div>
       </div>
 
     </section>
     <script src="options.js" defer></script>
-    <script src="render.js" defer></script>
   </body>
 </html>

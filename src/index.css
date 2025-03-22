@@ -12,6 +12,14 @@ body {
   height: 100%;
 }
 
+#search-window{
+  -webkit-app-region: drag;
+  background-color: #F0E8DD;
+  border-radius: 25px;
+  padding-bottom: 5vh;
+  height: 93vh;
+}
+
 button{
   background-color: transparent;
   background-size: 24px 24px;
@@ -47,6 +55,31 @@ button:focus {
 }
 #minimize{
   background-image: url(assets/icons/iconminimize.png);
+  background-size: cover;
+}
+#back{
+  background-image: url(assets/icons/iconBack.png);
+  background-size: cover;
+}
+#searchButton{
+  background-image: url(assets/icons/iconSearch.png);
+  background-size: cover;
+}
+/* Night Mode */
+#changeLocationNight{
+  background-image: url(assets/icons/iconLocationNight.png);
+  background-size: cover;
+}
+#closeNight{
+  background-image: url(assets/icons/iconExitNight.png);
+  background-size: cover;
+}
+#minimizeNitght{
+  background-image: url(assets/icons/iconminimizeNight.png);
+  background-size: cover;
+}
+#backNight{
+  background-image: url(assets/icons/iconBackNight.png);
   background-size: cover;
 }
 
@@ -132,3 +165,35 @@ button:focus {
   padding: 0;
 }
 
+#search{
+  margin-left: 1rem;
+}
+
+#search h2{
+  font-size: 1rem;
+}
+
+#locationSearch{
+  -webkit-app-region: no-drag;
+  width: 90%;
+  border-radius: 25px;
+  padding: 0.5rem;
+  border: 3px solid black;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#searchBar{
+  width: 90%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: inherit;
+}
+
+#searchBar:focus{
+  outline: none;
+}

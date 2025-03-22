@@ -1,4 +1,13 @@
+const { ipcMain, ipcRenderer } = require("electron");
+
 const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
+
+
+
+ipcRenderer.on("city", (event, city) => {
+    console.log("Odbiór miasta: ", city);
+    const currentCity = document.querySelector(".city"); 
+});
 
 //showWeather("Warsaw");
 

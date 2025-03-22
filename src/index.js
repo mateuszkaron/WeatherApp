@@ -46,8 +46,9 @@ ipcMain.on('window-minimize', () => {
   mainWindow.minimize();
 });
 
-ipcMain.on('change-location', () => {
-  console.log('Odbiór zmiany lokalizacji....');
-  mainWindow.loadFile(path.join(__dirname, 'changeLocation.html'));
+ipcMain.on("change-window", (event, newWindow) => {
+  console.log(`Ładowanie nowego okna: ${newWindow}...`);
+  mainWindow.loadFile(path.join(__dirname, newWindow));
 });
+
 
