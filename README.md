@@ -1,5 +1,5 @@
-#Weather Desktop App
-##Made in Electron famework wiyh JavaScript, HTML, CSS
+# Weather Desktop App
+## Made in Electron famework wiyh JavaScript, HTML, CSS
 ## Application is using AccuWeahter API
 ### Custom images and icons all made by myself.
 
