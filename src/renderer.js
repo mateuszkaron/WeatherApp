@@ -83,21 +83,13 @@ async function showWeather(city)
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("✅ Render.js załadowany!");
-
-    window.electronAPI.on("update-city", (newCity) => {
-        console.log("📥 Otrzymano miasto w render.js:", newCity);
-
-        const cityDisplay = document.getElementById("city");
-        if (cityDisplay) {
-            cityDisplay.innerText = `Aktualne miasto: ${newCity}`;
-            console.log("✅ Miasto zaktualizowane!");
-        } else {
-            console.error("❌ Element #cityDisplay nie został znaleziony!");
-        }
-    });
+electronAPI.on("update-city", (data) => {
+    console.log("Renderer received city: ", data);
+    const cityElement = document.getElementById("city");
+    if (cityElement) {
+        cityElement.innerText = data; // Update the city in index.html
+        //showWeather(data); // Fetch and display weather for the new city
+    } else {
+        console.error("City element not found in DOM.");
+    }
 });
-
-
-//showWeather(city.value);

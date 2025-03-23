@@ -24,11 +24,15 @@ if(changeLocation){
     });
 }
 
-if(searchButton){
+if (searchButton) {
     document.getElementById("searchButton").addEventListener("click", () => {
         console.log("Szukanie lokalizacji....");
-        const newCity = document.getElementById("searchBar").value;
-        window.electronAPI.send("city", newCity);
-        window.electronAPI.send("change-window", "index.html");
+        const newCity = document.getElementById("searchBar").value.trim();
+        if (newCity) {
+            window.electronAPI.send("city", newCity); // Send the new city to the main process
+            window.electronAPI.send("change-window", "index.html"); // Navigate back to index.html
+        } else {
+            console.log("Nie podano nazwy miasta.");
+        }
     });
 }

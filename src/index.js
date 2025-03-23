@@ -16,8 +16,8 @@ const createWindow = () => {
     transparent: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true,
-      nodeIntegration: false,
+      contextIsolation: true, // Ensure context isolation is enabled
+      nodeIntegration: false, // Disable node integration
     },
   });
 
@@ -51,15 +51,13 @@ ipcMain.on("change-window", (event, newWindow) => {
   mainWindow.loadFile(path.join(__dirname, newWindow));
 });
 
-ipcMain.on("city", (event, newCity) => {
-  console.log("📢 Otrzymano miasto w procesie głównym:", newCity);
-
+ipcMain.on("city", (event, data) => {
+  console.log("Main process received city: ", data);
   if (mainWindow && !mainWindow.isDestroyed()) {
-      console.log("📤 Wysyłanie miasta do renderera...");
-      mainWindow.webContents.send("update-city", newCity);
-      console.log("✅ Wiadomość wysłana do renderera!");
-  } else {
-      console.error("❌ Błąd: mainWindow jest zamknięte lub nie istnieje!");
+      mainWindow.webContents.once("did-finish-load", () => {
+          mainWindow.webContents.send("update-city", data); // Send the city to index.html after it loads
+      });
+      console.log("City forwarded to renderer: ", data);
   }
 });
 
