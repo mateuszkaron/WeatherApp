@@ -52,9 +52,18 @@ ipcMain.on("change-window", (event, newWindow) => {
 });
 
 ipcMain.on("city", (event, newCity) => {
-  if(mainWindow){
-    console.log("Odbiór miasta: ", newCity);
-    mainWindow.webContents.send("update-city", newCity);
+  console.log("📢 Otrzymano miasto w procesie głównym:", newCity);
+
+  if (mainWindow && !mainWindow.isDestroyed()) {
+      console.log("📤 Wysyłanie miasta do renderera...");
+      mainWindow.webContents.send("update-city", newCity);
+      console.log("✅ Wiadomość wysłana do renderera!");
+  } else {
+      console.error("❌ Błąd: mainWindow jest zamknięte lub nie istnieje!");
   }
 });
+
+
+
+
 

@@ -1,15 +1,8 @@
-const { ipcMain, ipcRenderer } = require("electron");
-
 const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
 
 //showWeather("Warsaw");
 
 console.log(city);
-
-ipcRenderer.on("update-city", (event, newCity) => {
-    console.log("Received city: ", newCity);
-    document.getElementById("city").innerText = newCity;
-});
 
 // Get location key
 async function getLocationKey(city) 
@@ -89,5 +82,22 @@ async function showWeather(city)
         return error;
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("✅ Render.js załadowany!");
+
+    window.electronAPI.on("update-city", (newCity) => {
+        console.log("📥 Otrzymano miasto w render.js:", newCity);
+
+        const cityDisplay = document.getElementById("city");
+        if (cityDisplay) {
+            cityDisplay.innerText = `Aktualne miasto: ${newCity}`;
+            console.log("✅ Miasto zaktualizowane!");
+        } else {
+            console.error("❌ Element #cityDisplay nie został znaleziony!");
+        }
+    });
+});
+
 
 //showWeather(city.value);

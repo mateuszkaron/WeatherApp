@@ -28,7 +28,7 @@ if(searchButton){
     document.getElementById("searchButton").addEventListener("click", () => {
         console.log("Szukanie lokalizacji....");
         const newCity = document.getElementById("searchBar").value;
-        window.electronAPI.newCity("city", newCity);
+        window.electronAPI.send("city", newCity);
         window.electronAPI.send("change-window", "index.html");
     });
 }
