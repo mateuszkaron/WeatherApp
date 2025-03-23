@@ -102,11 +102,20 @@ button:focus {
 }
 
 #temperature{
+  -webkit-app-region: no-drag;
   position: absolute;
   font-size: 3rem;
   margin-top: -8vh;
   margin-left: 1.3rem;
   padding: 0;
+  cursor: pointer;
+}
+
+#tempC{
+  display: block;
+}
+#tempF{
+  display: none;
 }
 
 #weather{

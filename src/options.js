@@ -1,6 +1,7 @@
 console.log("Plik options.js został załadowany!");
 const changeLocation = document.getElementById("changeLocation");
 const searchButton = document.getElementById("searchButton");
+const temperature = document.getElementById("temperature");
 
 document.getElementById("minimize").addEventListener("click", () => {
     console.log("Minimalizacja....");
@@ -21,6 +22,20 @@ if(changeLocation){
     document.getElementById("back").addEventListener("click", () => {
         console.log("Powrót....");
         window.electronAPI.send("change-window", "index.html");
+    });
+}
+
+if(temperature){
+    document.getElementById("temperature").addEventListener("click", () => {
+        const tempC = document.getElementById("tempC");
+        const tempF = document.getElementById("tempF");
+        if(tempC.style.display === "none"){
+            tempC.style.display = "block";
+            tempF.style.display = "none";
+        }else{
+            tempC.style.display = "none";
+            tempF.style.display = "block";
+        }
     });
 }
 

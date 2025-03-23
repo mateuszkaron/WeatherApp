@@ -75,7 +75,9 @@ async function showWeather(city)
         console.log("Weather: ", weatherText);
         console.log("Weather icon: ", weatherIcon);
         console.log("Temperature in Celcius: ", temperatureCelcius);
+        document.getElementById("tempC").innerText = temperatureCelcius + "°C";
         console.log("Temperature in Farenheit: ", temperatureFarenheit);
+        document.getElementById("tempF").innerText = temperatureFarenheit + "°F";
 
     }catch(error){
         console.error("Error: ", error);
@@ -88,8 +90,6 @@ electronAPI.on("update-city", (data) => {
     const cityElement = document.getElementById("city");
     if (cityElement) {
         cityElement.innerText = data; // Update the city in index.html
-        //showWeather(data); // Fetch and display weather for the new city
-    } else {
-        console.error("City element not found in DOM.");
+        showWeather(data); // Fetch and display weather for the new city
     }
 });
