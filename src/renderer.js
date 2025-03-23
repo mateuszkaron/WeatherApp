@@ -73,6 +73,8 @@ async function showWeather(city)
         console.log("City: ", city);
         console.log("Day time: ", isDayTime);
         console.log("Weather: ", weatherText);
+        let formatedWeatherText = weatherText.split('').join('<br>');
+        document.getElementById("desc").innerHTML = formatedWeatherText;
         console.log("Weather icon: ", weatherIcon);
         console.log("Temperature in Celcius: ", temperatureCelcius);
         document.getElementById("tempC").innerText = temperatureCelcius + "°C";
