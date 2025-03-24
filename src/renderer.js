@@ -1,4 +1,4 @@
-const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
+const _apiKey = "################################"; // Your API key
 
 //showWeather("Warsaw");
 
@@ -76,6 +76,8 @@ async function showWeather(city)
         let formatedWeatherText = weatherText.split('').join('<br>');
         document.getElementById("desc").innerHTML = formatedWeatherText;
         console.log("Weather icon: ", weatherIcon);
+        weatherIcon = weatherIcon(weatherIcon);
+        document.getElementById("weather").style.backgroundImage = `./assets/backgrounds/${weatherIcon}.png`;
         console.log("Temperature in Celcius: ", temperatureCelcius);
         document.getElementById("tempC").innerText = temperatureCelcius + "°C";
         console.log("Temperature in Farenheit: ", temperatureFarenheit);
@@ -86,6 +88,35 @@ async function showWeather(city)
         return error;
     }
 }
+
+function weatherIcon(iconCode) {
+    if ([1, 2].includes(iconCode)) return "sunny-day";
+    if ([33, 34].includes(iconCode)) return "clear-night";
+    
+    if ([3, 4, 5].includes(iconCode)) return "partly-cloudy-day";
+    if ([35, 36, 37].includes(iconCode)) return "partly-cloudy-night";
+    
+    if ([6, 7, 8, 11].includes(iconCode)) return "cloudy-day";
+    if ([38].includes(iconCode)) return "cloudy-night";
+    
+    if ([12, 13, 14, 18].includes(iconCode)) return "rainy-day";
+    if ([39, 40].includes(iconCode)) return "rainy-night";
+    
+    if ([15, 16, 17].includes(iconCode)) return "storm-day";
+    if ([41, 42].includes(iconCode)) return "storm-night";
+    
+    if ([19, 20, 21, 22, 23].includes(iconCode)) return "snow-day";
+    if ([43, 44].includes(iconCode)) return "snow-night";
+    
+    if ([24, 25, 26, 29].includes(iconCode)) return "mist";
+    if ([30].includes(iconCode)) return "hot";
+    if ([31].includes(iconCode)) return "cold";
+    if ([32].includes(iconCode)) return "windy";
+
+    return "unknown"; // If there is no icon match
+}
+
+
 
 electronAPI.on("update-city", (data) => {
     console.log("Renderer received city: ", data);
