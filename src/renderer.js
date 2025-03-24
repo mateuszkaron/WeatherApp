@@ -1,7 +1,5 @@
 const _apiKey = "################################"; // Your API key
 
-//showWeather("Warsaw");
-
 console.log(city);
 
 // Get location key
