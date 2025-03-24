@@ -1,6 +1,4 @@
-const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r";
-
-//showWeather("Warsaw");
+const _apiKey = "#########################";
 
 console.log(city);
 
