@@ -14,6 +14,7 @@ const createWindow = () => {
     height: 600,
     frame: false,
     transparent: true,
+    resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true, // Ensure context isolation is enabled

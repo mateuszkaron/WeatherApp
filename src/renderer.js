@@ -1,4 +1,4 @@
-const _apiKey = "##############################"; // Your API key
+const _apiKey = "fVrDhhLOZdWRehiImpRkgrcEHAwYFU3r"; // Your API key
 
 console.log(city);
 
