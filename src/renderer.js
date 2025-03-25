@@ -1,4 +1,4 @@
-const _apiKey = "#####################"; // Your API key
+const _apiKey = "########################"; // Your API key
 
 console.log(city);
 
@@ -85,6 +85,37 @@ async function showWeather(city)
         console.error("Error: ", error);
         return error;
     }
+}
+
+async function show5DaysWeather(city){
+    
+    const fiveDaysUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${_apiKey}`;
+
+    try{
+        const response = await fetch(weatherUrl);
+        if(!response.ok) throw new Error("We failed to get your weather infomation");
+
+        const data = await response.json();
+        const weather = data.DailyForecasts.map(day => {
+            return {
+                date: new Date(day.Date).toLocaleDateString("en-US", {weekday: "long", day: "2-digit", month: "short"}),
+                minTemp: day.Temperature.Minimum.Value,
+                maxTemp: day.Temperature.Maximum.Value,
+                avgTemp: (minTemp + maxTemp) / 2,
+                dayIcon: day.Day.Icon,
+                dayPhrase: day.Day.IconPhrase,
+                nightIcon: day.Night.Icon,
+                nightPhrase: day.Night.IconPhrase,
+            };
+        });
+
+        return weather;
+
+    }catch{
+        console.error("Error: ", error);
+        return error;
+    }
+
 }
 
 function weatherIcon(iconCode) {
