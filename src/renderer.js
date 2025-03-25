@@ -75,9 +75,9 @@ async function showWeather(city)
         // weatherIcon = weatherIcon(weatherIcon);
         // document.getElementById("weather").style.backgroundImage = `./assets/icons/${weatherIcon}.png`;
         console.log("Temperature in Celcius: ", temperatureCelcius);
-        document.getElementById("tempC").innerText = temperatureCelcius + "°C";
+        document.getElementById("tempCel").innerText = temperatureCelcius + "°C";
         console.log("Temperature in Farenheit: ", temperatureFarenheit);
-        document.getElementById("tempF").innerText = temperatureFarenheit + "°F";
+        document.getElementById("tempFar").innerText = temperatureFarenheit + "°F";
 
     }catch(error){
         console.error("Error: ", error);
@@ -96,7 +96,8 @@ async function get5DaysForecast(locationKey) {
 
         const forecastData = data.DailyForecasts.map((day) => ({
             date: new Date(day.Date).toLocaleDateString("en-US", { weekday: "short" }),
-            temp: Math.round((day.Temperature.Maximum.Value - 32) * 5 / 9), // Convert to °C
+            tempC: Math.round((day.Temperature.Maximum.Value - 32) * 5 / 9), // Convert to °C
+            tempF: Math.round(day.Temperature.Maximum.Value), // °F
             icon: day.Day.Icon,
         }));
 
@@ -120,8 +121,10 @@ async function show5DaysForecast(city) {
                 const iconFile = weatherIcon(day.icon);
                 dayElement.querySelector(`.forecast-icon${index + 1}`).src = `assets/icons/${iconFile}.png`;
                 console.log("Icon: ", iconFile);
-                dayElement.querySelector(`.day-temp${index + 1}`).innerText = `${day.temp}°C`;
-                console.log("Temp: ", day.temp);
+                dayElement.querySelector(`.day-tempC${index + 1}`).innerText = `${day.tempC}°C`;
+                console.log("Temp: ", day.tempC);
+                dayElement.querySelector(`.day-tempF${index + 1}`).innerText = `${day.tempF}°F`;
+                console.log("Temp: ", day.tempF);
             }
         });
     } catch (error) {

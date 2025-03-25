@@ -2,6 +2,7 @@ body {
   font-family: "Pixelify Sans", sans-serif;
   font-weight: 400;
   overflow: hidden;
+  user-select: none; 
 }
 
 #main-app{
@@ -111,10 +112,10 @@ button:focus {
   cursor: pointer;
 }
 
-#tempC{
+.tempC{
   display: block;
 }
-#tempF{
+.tempF{
   display: none;
 }
 

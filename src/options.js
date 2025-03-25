@@ -27,14 +27,16 @@ if(changeLocation){
 
 if(temperature){
     document.getElementById("temperature").addEventListener("click", () => {
-        const tempC = document.getElementById("tempC");
-        const tempF = document.getElementById("tempF");
-        if(tempC.style.display === "none"){
-            tempC.style.display = "block";
-            tempF.style.display = "none";
-        }else{
-            tempC.style.display = "none";
-            tempF.style.display = "block";
+        const tempC = document.querySelectorAll(".tempC");
+        const tempF = document.querySelectorAll(".tempF");
+        const isTempHidden = tempC[0]?.style.display === "none" || tempC[0]?.style.display === "";
+
+        if (isTempHidden) {
+            tempC.forEach(el => el.style.display = "block");
+            tempF.forEach(el => el.style.display = "none");
+        } else {
+            tempC.forEach(el => el.style.display = "none");
+            tempF.forEach(el => el.style.display = "block");
         }
     });
 }
