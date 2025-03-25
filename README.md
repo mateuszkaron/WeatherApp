@@ -13,7 +13,7 @@
 ### Features
 - Temperature view
 - 5 days weather
-- Temperature in celcius and farenheit
+- Temperature in celcius and farenheit (click on temperature to change)
 - Weather description
 - Search your location
 
@@ -23,4 +23,3 @@
 - backgrounds
 - nightmode
 - autocomplete serach
-- 
