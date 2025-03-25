@@ -4,22 +4,24 @@
 ### Custom images and icons all made by myself.
 
 ### App Design
-![image](https://github.com/user-attachments/assets/6e4c6890-583e-4f57-8b58-651ffe960ac8)
+![image](https://github.com/user-attachments/assets/b81b7ea9-b276-459b-a84e-4598953e2179)
+
 
 
 
 
 
 ### Features
-- Temperature view
-- 5 days weather
-- Temperature in celcius and farenheit (click on temperature to change)
-- Weather description
 - Search your location
+- View temperature in searched location
+- 5 days weather in selected location.
+- Temperature in celcius and farenheit (click on temperature to change)
+- Weather description (sunny, cloudy, itp...)
 
 
 ### To-Do
-- saving your last location
-- backgrounds
+- saving your last searched location
+- custom backgrounds that fit every weather
 - nightmode
 - autocomplete serach
+- icons fix (sunny bad looking, mist not visible);
