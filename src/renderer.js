@@ -1,4 +1,4 @@
-const _apiKey = "########################"; // Your API key
+const _apiKey = "##############################"; // Your API key
 
 console.log(city);
 
@@ -46,8 +46,6 @@ async function getWeather(locationKey)
         const temperatureCelcius = data[0].Temperature.Metric.Value;  // Get temperature in Celcius
         const temperatureFarenheit = data[0].Temperature.Imperial.Value; // Get temperature in Farenheit
 
-        
-
         return {
             isDayTime,
             weatherText,
@@ -87,35 +85,48 @@ async function showWeather(city)
     }
 }
 
-async function show5DaysWeather(city){
-    
+async function get5DaysForecast(locationKey) {
     const fiveDaysUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${_apiKey}`;
 
-    try{
-        const response = await fetch(weatherUrl);
-        if(!response.ok) throw new Error("We failed to get your weather infomation");
+    try {
+        const response = await fetch(fiveDaysUrl);
+        if (!response.ok) throw new Error("We failed to get your 5-day forecast information");
 
         const data = await response.json();
-        const weather = data.DailyForecasts.map(day => {
-            return {
-                date: new Date(day.Date).toLocaleDateString("en-US", {weekday: "long", day: "2-digit", month: "short"}),
-                minTemp: day.Temperature.Minimum.Value,
-                maxTemp: day.Temperature.Maximum.Value,
-                avgTemp: (minTemp + maxTemp) / 2,
-                dayIcon: day.Day.Icon,
-                dayPhrase: day.Day.IconPhrase,
-                nightIcon: day.Night.Icon,
-                nightPhrase: day.Night.IconPhrase,
-            };
-        });
 
-        return weather;
+        const forecastData = data.DailyForecasts.map((day) => ({
+            date: new Date(day.Date).toLocaleDateString("en-US", { weekday: "short" }),
+            temp: Math.round((day.Temperature.Maximum.Value - 32) * 5 / 9), // Convert to °C
+            icon: day.Day.Icon,
+        }));
 
-    }catch{
+        return forecastData;
+    } catch (error) {
         console.error("Error: ", error);
-        return error;
+        return [];
     }
+}
 
+async function show5DaysForecast(city) {
+    try {
+        const locationKey = await getLocationKey(city);
+        const forecastData = await get5DaysForecast(locationKey);
+
+        forecastData.forEach((day, index) => {
+            const dayElement = document.querySelector(`.day[data-index="${index + 1}"]`);
+            if (dayElement) {
+                dayElement.querySelector(`.day-data${index + 1}`).innerText = day.date;
+                console.log("Day: ", day.date);
+                const iconFile = weatherIcon(day.icon);
+                dayElement.querySelector(`.forecast-icon${index + 1}`).src = `assets/icons/${iconFile}.png`;
+                console.log("Icon: ", iconFile);
+                dayElement.querySelector(`.day-temp${index + 1}`).innerText = `${day.temp}°C`;
+                console.log("Temp: ", day.temp);
+            }
+        });
+    } catch (error) {
+        console.error("Error: ", error);
+    }
 }
 
 function weatherIcon(iconCode) {
@@ -145,13 +156,12 @@ function weatherIcon(iconCode) {
     return "unknown"; // If there is no icon match
 }
 
-
-
 electronAPI.on("update-city", (data) => {
     console.log("Renderer received city: ", data);
     const cityElement = document.getElementById("city");
     if (cityElement) {
         cityElement.innerText = data; // Update the city in index.html
         showWeather(data); // Fetch and display weather for the new city
+        show5DaysForecast(data); // Fetch and display 5-day forecast for the new city
     }
 });

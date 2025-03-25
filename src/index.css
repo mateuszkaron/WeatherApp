@@ -156,7 +156,7 @@ button:focus {
   height: 15vh;
 }
 
-#day{
+.day{
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -164,12 +164,12 @@ button:focus {
   justify-content: center;
 }
 
-#day h3, #day h4{
+.day h3, .day h4{
   margin: 0;
   padding: 0;
 }
 
-#day img{
+.day img{
   margin: 0;
   padding: 0;
 }
