@@ -12,16 +12,14 @@
 
 ### Features
 - Temperature view
+- 5 days weather
+- Temperature in celcius and farenheit (click on temperature to change)
 - Weather description
 - Search your location
 
 
 ### To-Do
 - saving your last location
-- 5 days weather
 - backgrounds
 - nightmode
-- autocomplete serach 
-
-
-
+- autocomplete serach
