@@ -19,7 +19,6 @@
 ### To-Do
 - saving your last location
 - 5 days weather
-- icons
 - backgrounds
 - nightmode
 - autocomplete serach 
