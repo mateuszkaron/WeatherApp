@@ -1,4 +1,4 @@
-const _apiKey = "################################"; // Your API key
+const _apiKey = "#####################"; // Your API key
 
 console.log(city);
 
@@ -74,8 +74,8 @@ async function showWeather(city)
         let formatedWeatherText = weatherText.split('').join('<br>');
         document.getElementById("desc").innerHTML = formatedWeatherText;
         console.log("Weather icon: ", weatherIcon);
-        weatherIcon = weatherIcon(weatherIcon);
-        document.getElementById("weather").style.backgroundImage = `./assets/backgrounds/${weatherIcon}.png`;
+        // weatherIcon = weatherIcon(weatherIcon);
+        // document.getElementById("weather").style.backgroundImage = `./assets/icons/${weatherIcon}.png`;
         console.log("Temperature in Celcius: ", temperatureCelcius);
         document.getElementById("tempC").innerText = temperatureCelcius + "°C";
         console.log("Temperature in Farenheit: ", temperatureFarenheit);

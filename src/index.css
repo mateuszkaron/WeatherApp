@@ -6,7 +6,7 @@ body {
 
 #main-app{
   -webkit-app-region: drag;
-  background-color: #F0E8DD;
+  background-color: #FAF3E9;
   border-radius: 25px;
   padding-bottom: 5vh;
   height: 100%;
@@ -14,7 +14,7 @@ body {
 
 #search-window{
   -webkit-app-region: drag;
-  background-color: #F0E8DD;
+  background-color: #FAF3E9;
   border-radius: 25px;
   padding-bottom: 5vh;
   height: 93vh;
@@ -121,7 +121,7 @@ button:focus {
 #weather{
   background-image: url(assets/backgrounds/sun-export.png);
   background-repeat: no-repeat;
-  background-size: 400px 400px;
+  background-size:400px 400px;
   background-position: center;
   height: 70vh;
   margin-top: 2rem;
