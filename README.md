@@ -12,13 +12,13 @@
 
 ### Features
 - Temperature view
+- 5 days weather
 - Weather description
 - Search your location
 
 
 ### To-Do
 - saving your last location
-- 5 days weather
 - backgrounds
 - nightmode
 - autocomplete serach 
